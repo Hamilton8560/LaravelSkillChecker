@@ -38,10 +38,12 @@ class ListCategories extends Component
         /** @var \App\Models\User */
         $user = Auth::user();
 
-        $category = $user->trainingCategoris()->findOrFail($categoryId);
+        $category = $user->trainingCategories()->findOrFail($categoryId);
         $category ->delete();
 
         session()->flash('message','Category deleted.');
         $this->confirmingDeleteId = null;
     }
+
+
 }

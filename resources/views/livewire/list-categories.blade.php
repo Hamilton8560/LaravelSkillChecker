@@ -20,8 +20,8 @@
 
     {{-- Table --}}
     <div class="overflow-x-auto">
-        <table class="w-full table-auto border border-gray-200">
-            <thead class="bg-gray-100">
+        <table class="w-full table-auto border  border-gray-200">
+            <thead class="bg-slate-700">
                 <tr>
                     <th class="px-4 py-2 text-left">Name</th>
                     <th class="px-4 py-2 text-left">Actions</th>
@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 @forelse ($categories as $cat)
-                    <tr class="border-b">
+                    <tr class="border-b hover:bg-black">
                         <td class="px-4 py-2">{{ $cat->name }}</td>
                         <td class="px-4 py-2 space-x-2">
                             <x-button
