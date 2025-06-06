@@ -13,6 +13,7 @@ class TrainingCategory extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'type'
     ];
 
     public function user()

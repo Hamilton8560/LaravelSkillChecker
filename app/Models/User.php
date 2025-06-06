@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'timezone',
     ];
 
     /**
@@ -49,7 +50,7 @@ class User extends Authenticatable
     {
         return Str::of($this->name)
             ->explode(' ')
-            ->map(fn (string $part) => Str::of($part)->substr(0, 1))
+            ->map(fn(string $part) => Str::of($part)->substr(0, 1))
             ->implode('');
     }
 
@@ -75,5 +76,27 @@ class User extends Authenticatable
     public function trainings()
     {
         return $this->hasMany(Training::class);
+    }
+
+    /**
+     * Many-to-many: a user can have many active buffs.
+     */
+    public function buffs()
+    {
+        return $this->belongsToMany(Buff::class, 'user_buffs')
+            ->withPivot(['starts_at', 'ends_at', 'consumed_session_id'])
+            ->withTimestamps();
+    }
+
+    public function activeBuffFor(string $categoryType): ?\App\Models\UserBuff
+    {
+        return $this->buffs()
+            ->active() // calls UserBuff::scopeActive()
+            ->where(function ($q) use ($categoryType) {
+                $q->whereJsonContains('applies_to', $categoryType)
+                    ->orWhereJsonContains('applies_to', '*');
+            })
+            ->orderBy('multiplier', 'desc')
+            ->first();
     }
 }
