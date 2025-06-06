@@ -2,15 +2,28 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\TrainingCategory;
 use Illuminate\Support\Facades\Auth;
-
-
+use Livewire\Component;
 
 class ListCategories extends Component
 {
     public $confirmingDeleteId = null;
+
+    public function mount()
+    {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        // If the user has no categories, flash a message and redirect them
+        if ($user->trainingCategories()->count() === 0) {
+            session()->flash(
+                'message',
+                'No categories found. Please create a category first.'
+            );
+
+            $this->redirect(route('categories.create'));
+        }
+    }
 
     public function render()
     {
@@ -39,11 +52,9 @@ class ListCategories extends Component
         $user = Auth::user();
 
         $category = $user->trainingCategories()->findOrFail($categoryId);
-        $category ->delete();
+        $category->delete();
 
-        session()->flash('message','Category deleted.');
+        session()->flash('message', 'Category deleted.');
         $this->confirmingDeleteId = null;
     }
-
-
 }

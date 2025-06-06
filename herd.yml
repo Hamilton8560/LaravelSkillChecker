@@ -1,0 +1,5 @@
+integrations:
+  forge:
+    default:
+      server-id: 878762
+      site-id: 2592934

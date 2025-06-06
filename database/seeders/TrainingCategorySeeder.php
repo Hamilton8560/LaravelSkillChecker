@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 
 class TrainingCategorySeeder extends Seeder
 {
@@ -18,9 +17,9 @@ class TrainingCategorySeeder extends Seeder
 
         if (! $user) {
             $user = User::factory()->create([
-                'name'      =>  'DevSeed User',
-                'email'     =>  'devseed@example.com',
-                'password'  =>  bcrypt('password'),
+                'name' => 'DevSeed User',
+                'email' => 'devseed@example.com',
+                'password' => bcrypt('password'),
             ]);
         }
 
@@ -41,16 +40,15 @@ class TrainingCategorySeeder extends Seeder
         foreach ($categories as $name) {
             DB::table('training_categories')->updateOrInsert(
                 [
-                    'user_id'   =>  $user->id,
-                    'name'      =>  $name,
+                    'user_id' => $user->id,
+                    'name' => $name,
                 ],
                 [
-                    'created_at'    => now(),
-                    'updated_at'    =>  now(),
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]
-            
-                );
-    }
-}
 
+            );
+        }
+    }
 }

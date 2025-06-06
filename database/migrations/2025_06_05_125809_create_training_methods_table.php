@@ -19,11 +19,9 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
-
-
             $table->string('name');
             $table->timestamps();
-             // We want each user to have unique category names (but different users can share the same text):
+            // We want each user to have unique category names (but different users can share the same text):
             // correct: composite unique on both columns together
             $table->unique(['user_id', 'name']);
 

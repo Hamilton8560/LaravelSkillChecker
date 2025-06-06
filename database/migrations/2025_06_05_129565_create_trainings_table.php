@@ -11,24 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-           Schema::create('trainings', function (Blueprint $table) {
-        $table->id();
+        Schema::create('trainings', function (Blueprint $table) {
+            $table->id();
 
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->foreignId('training_category_id')->constrained('training_categories')->onDelete('restrict');
-        $table->foreignId('training_method_id')->constrained('training_methods')->onDelete('restrict');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('training_category_id')->constrained('training_categories')->onDelete('restrict');
+            $table->foreignId('training_method_id')->constrained('training_methods')->onDelete('restrict');
 
-        $table->unsignedInteger('duration');
-        $table->unsignedTinyInteger('RPE');
-        $table->text('notes')->nullable();
-        $table->text('task_description');
-        $table->text('what_you_learned');
+            $table->unsignedInteger('duration');
+            $table->unsignedTinyInteger('RPE');
+            $table->text('notes')->nullable();
+            $table->text('task_description');
+            $table->text('what_you_learned');
 
-        // ← Score must appear here exactly once:
-        $table->double('score', 8, 2)->default(0);
+            // ← Score must appear here exactly once:
+            $table->double('score', 8, 2)->default(0);
 
-        $table->timestamps();
-    });
+            $table->timestamps();
+        });
     }
 
     /**

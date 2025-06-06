@@ -1,5 +1,10 @@
 {{-- resources/views/livewire/create-category.blade.php --}}
 <div class="p-6 max-w-lg mx-auto">
+    @if (session('message'))
+    <div class="mb-4 p-2 bg-green-100 text-green-700 rounded">
+        {{ session('message') }}
+    </div>
+@endif
     <h1 class="text-2xl font-semibold mb-4">New Training Category</h1>
 
     <x-form wire:submit="submit">

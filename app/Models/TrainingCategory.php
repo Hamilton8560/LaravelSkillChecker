@@ -12,7 +12,7 @@ class TrainingCategory extends Model
 
     protected $fillable = [
         'user_id',
-        'name'
+        'name',
     ];
 
     public function user()
@@ -22,6 +22,6 @@ class TrainingCategory extends Model
 
     public function trainings()
     {
-        return $this->hasMany(training::class);
+        return $this->hasMany(Training::class);
     }
 }

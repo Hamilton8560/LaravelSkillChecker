@@ -2,13 +2,14 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\TrainingCategory;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class EditCategory extends Component
 {
     public TrainingCategory $category;
+
     public $name;
 
     public function mount(TrainingCategory $category)
@@ -16,7 +17,7 @@ class EditCategory extends Component
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        //Ensure the category belongs to the logged-in user; otherwise 404
+        // Ensure the category belongs to the logged-in user; otherwise 404
         $this->category = $user
             ->trainingCategories()
             ->findOrFail($category->id);
@@ -29,7 +30,7 @@ class EditCategory extends Component
         return [
             // Unique per user, ignoring current category ID
             // ===Question?
-            'name' => 'required|string|max:255|unique:training_categories,name,' . $this->category->id . ',id,user_id,' . Auth::id(),
+            'name' => 'required|string|max:255|unique:training_categories,name,'.$this->category->id.',id,user_id,'.Auth::id(),
         ];
     }
 
@@ -40,11 +41,11 @@ class EditCategory extends Component
         $this->category->update([
             'name' => $this->name,
         ]);
-        
+
         session()->flash('message', 'Category updated successfully.');
-        
+
         return redirect()->route('categories.index');
-    
+
     }
 
     public function render()

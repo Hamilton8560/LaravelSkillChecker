@@ -15,11 +15,11 @@ class Counter extends Component
 
     public function decrement()
     {
-        if($this->count > 0)
-        {
-        $this->count--;
+        if ($this->count > 0) {
+            $this->count--;
         }
     }
+
     public function render()
     {
         return view('livewire.counter');

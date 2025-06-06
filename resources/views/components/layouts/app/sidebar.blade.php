@@ -14,8 +14,9 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="bolt" :href="route('trainings.create')" :current="request()->routeIs('trainings.create')" wire:navigate>{{ __('Training') }}</flux:navlist.item>
+                    <flux:navlist.item icon="bolt" :href="route('trainings.index')" :current="request()->routeIs('trainings.index')" wire:navigate>{{ __('Training') }}</flux:navlist.item>
                      <flux:navlist.item icon="bolt" :href="route('categories.index')" :current="request()->routeIs('categories.index')" wire:navigate>{{ __('Categories') }}</flux:navlist.item>
+                     <flux:navlist.item icon="bolt" :href="route('methods.index')" :current="request()->routeIs('methods.index')" wire:navigate>{{ __('Methods of Training') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

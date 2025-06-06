@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class training extends Model
+class Training extends Model
 {
-   
     use HasFactory;
 
     protected $fillable = [
@@ -18,6 +17,8 @@ class training extends Model
         'RPE',
         'notes',
         'score',
+        'task_description',
+        'what_you_learned',
     ];
 
     public function user()
@@ -27,27 +28,27 @@ class training extends Model
 
     public function category()
     {
-        return $this->belongsTo(TrainingCategory::class);
+        return $this->belongsTo(TrainingCategory::class, 'training_category_id');
     }
 
     public function method()
     {
-        return $this->belongsTo(TrainingMethod::class);
+        return $this->belongsTo(TrainingMethod::class, 'training_method_id');
     }
 
     protected static function booted()
     {
+        //==Question?===
         static::creating(function ($training) {
             if (! isset($training->score)) {
                 $training->score = round($training->RPE * sqrt($training->duration), 2);
             }
         });
         static::updating(function ($training) {
-            if($training->isDirty(['RPE', 'duration'])) {
+            //==Question?===
+            if ($training->isDirty(['RPE', 'duration'])) {
                 $training->score = round($training->RPE * sqrt($training->duration), 2);
             }
         });
-
-
     }
 }

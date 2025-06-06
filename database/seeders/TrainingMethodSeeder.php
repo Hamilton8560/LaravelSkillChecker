@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
 
 class TrainingMethodSeeder extends Seeder
 {
@@ -18,7 +17,7 @@ class TrainingMethodSeeder extends Seeder
         $user = User::first();
         if (! $user) {
             $user = User::factory()->create([
-                'name'  => 'DevSeed User',
+                'name' => 'DevSeed User',
                 'email' => 'devseed@example.com',
                 'password' => bcrypt('password'),
             ]);
@@ -39,7 +38,7 @@ class TrainingMethodSeeder extends Seeder
             DB::table('training_methods')->updateOrInsert(
                 [
                     'user_id' => $user->id,
-                    'name'    => $name,
+                    'name' => $name,
                 ],
                 [
                     'created_at' => now(),

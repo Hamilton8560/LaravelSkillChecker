@@ -2,10 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\TrainingCategory;
 use Illuminate\Support\Facades\Auth;
-
+use Livewire\Component;
 
 class CreateCategory extends Component
 {
@@ -15,7 +14,7 @@ class CreateCategory extends Component
     {
         return [
             // ===Question?
-            'name' => 'required|string|max:255|unique:training_categories,name,NULL,id,user_id,' .Auth::id(),
+            'name' => 'required|string|max:255|unique:training_categories,name,NULL,id,user_id,'.Auth::id(),
         ];
     }
 
@@ -24,14 +23,15 @@ class CreateCategory extends Component
         $this->validate();
 
         TrainingCategory::create([
-            'user_id'   =>  Auth::id(),
-            'name'      =>  $this->name,
+            'user_id' => Auth::id(),
+            'name' => $this->name,
         ]);
         session()->flash('message', 'Category created');
         $this->name = '';
 
         return redirect()->route('categories.index');
     }
+
     public function render()
     {
         return view('livewire.create-category');
