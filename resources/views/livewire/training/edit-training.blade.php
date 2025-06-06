@@ -62,7 +62,7 @@
                 min="1"
                 max="10"
                 placeholder="Rate perceived exertion"
-                icon="o-speedometer"
+                icon="lucide.activity"
             />
 
             @error('RPE')
