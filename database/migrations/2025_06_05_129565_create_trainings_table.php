@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            /**
+             *  cascade means delete every child record when the parent record is deleted
+             *  restrict means dont allow the parent record to be deleted if there are child records
+             */
 
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('training_category_id')->constrained('training_categories')->onDelete('restrict');

@@ -24,6 +24,26 @@
             @enderror
         </div>
 
+         {{-- Type Select --}}
+        <div class="mt-4">
+            <x-select
+                label="Type"
+                wire:model="type"
+                :options="[
+                    ['value' => 'cognitive', 'label' => 'Cognitive'],
+                    ['value' => 'physical', 'label' => 'Physical']
+                ]"
+                option-value="value"
+                option-label="label"
+                placeholder="Select type"
+                icon="o-tag"
+            />
+
+            @error('type')
+                <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
+            @enderror
+        </div>
+
         {{-- Actions --}}
         <x-slot:actions>
             <x-button
