@@ -99,4 +99,9 @@ class User extends Authenticatable
             ->orderBy('multiplier', 'desc')
             ->first();
     }
+
+    public function objectives()
+    {
+        return $this->hasMany(Objective::class);
+    }
 }

@@ -9,12 +9,13 @@ use Livewire\Component;
 class CreateCategory extends Component
 {
     public $name;
+    public $type;
 
     protected function rules()
     {
         return [
             // ===Question?
-            'name' => 'required|string|max:255|unique:training_categories,name,NULL,id,user_id,'.Auth::id(),
+            'name' => 'required|string|max:255|unique:training_categories,name,NULL,id,user_id,' . Auth::id(),
         ];
     }
 
@@ -25,9 +26,11 @@ class CreateCategory extends Component
         TrainingCategory::create([
             'user_id' => Auth::id(),
             'name' => $this->name,
+            'type' => $this->type,
         ]);
         session()->flash('message', 'Category created');
         $this->name = '';
+        $this->type = '';
 
         return redirect()->route('categories.index');
     }

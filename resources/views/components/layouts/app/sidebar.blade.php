@@ -17,7 +17,8 @@
                     <flux:navlist.item icon="bolt" :href="route('trainings.index')" :current="request()->routeIs('trainings.index')" wire:navigate>{{ __('Training') }}</flux:navlist.item>
                      <flux:navlist.item icon="bolt" :href="route('categories.index')" :current="request()->routeIs('categories.index')" wire:navigate>{{ __('Categories') }}</flux:navlist.item>
                      <flux:navlist.item icon="bolt" :href="route('methods.index')" :current="request()->routeIs('methods.index')" wire:navigate>{{ __('Methods of Training') }}</flux:navlist.item>
-                </flux:navlist.group>
+                     <flux:navlist.item icon="bolt" :href="route('objectives.index')" :current="request()->routeIs('objectives.index')" wire:navigate>{{ __('Learning Objectives') }}</flux:navlist.item>
+                    </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
