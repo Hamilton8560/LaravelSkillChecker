@@ -11,21 +11,21 @@ class ListObjectives extends Component
 {
     public function mount()
     {
-        //==Question? learn about carbon===
-        /** @var \App\Models\User $user */
-        $user = Auth::user();
-        $hasToday = $user
-            ->objectives()
-            ->whereDate('created_at', Carbon::today())
-            ->exists();
+        // //==Question? learn about carbon===
+        // /** @var \App\Models\User $user */
+        // $user = Auth::user();
+        // $hasToday = $user
+        //     ->objectives()
+        //     ->whereDate('created_at', Carbon::today())
+        //     ->exists();
 
-        if (! $hasToday) {
-            session()->flash(
-                'message',
-                'No Objectives have been created for today, create one'
-            );
-            return redirect()->route('objectives.create');
-        }
+        // if (! $hasToday) {
+        //     session()->flash(
+        //         'message',
+        //         'No Objectives have been created for today, create one'
+        //     );
+        //     return redirect()->route('objectives.create');
+        // }
     }
 
     public function render()
