@@ -15,6 +15,7 @@ $colorClasses = [
     'purple' => 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400',
     'red' => 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400',
     'yellow' => 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400',
+    'black' => 'bg-white dark:text-white text-black dark:bg-slate-950'
 ];
 
 $bgColor = $colorClasses[$color] ?? $colorClasses['blue'];

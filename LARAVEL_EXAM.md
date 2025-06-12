@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 ```
 
 a) Explain what each middleware does and why they are grouped together.  
-b) What is the advantage of using named routes?  
+b) What is the advantage of using named routes?  It allows you to explicitly call the file that youre aiming for.
 c) How would you implement a custom middleware that checks if a user has completed at least one objective before accessing training routes?
 
 ### Question 1.2 (5 points)
