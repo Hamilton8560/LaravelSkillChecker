@@ -73,6 +73,11 @@ class ListTrainings extends Component
             'stats' => $stats,
         ]);
     }
+    public function goCategory()
+    {
+        return view('livewire.create-category');
+    }
+
     public function confirmDelete($categoryId)
     {
         $this->confirmingDeleteId = $categoryId;

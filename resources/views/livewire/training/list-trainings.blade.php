@@ -16,22 +16,18 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         {{-- Search Input --}}
         <div class="w-full sm:w-96">
-            <x-input 
-                type="search" 
-                wire:model.live.debounce.300ms="search" 
-                placeholder="Search by category, method, or notes..." 
-                icon="o-magnifying-glass"
-                class="w-full"
-            />
+            <x-input type="search" wire:model.live.debounce.300ms="search"
+                placeholder="Search by category, method, or notes..." icon="o-magnifying-glass" class="w-full" />
         </div>
 
         {{-- New Training Button --}}
-        <x-button 
-            label="New Training" 
-            icon="o-plus" 
-            link="{{ route('trainings.create') }}"
-            class="btn-primary"
-        />
+        <x-button label="New Training" tooltip="New Training Session" icon="o-plus"
+            link="{{ route('trainings.create') }}" class="btn-primary" />
+        {{-- New Training Button --}}
+        <x-button label="Category" tooltip="create new category" icon="o-plus" link="{{ route('categories.create') }}"
+            class="btn-secondary" />
+        <x-button tooltip="create new method" label="Method" icon="o-plus" link="{{ route('methods.create') }}"
+            class="btn-tertiary" />
     </div>
 
     {{-- Stats Cards --}}
@@ -62,14 +58,30 @@
             <table class="w-full table-auto">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Category</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Method</th>
-                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Duration</th>
-                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">RPE</th>
-                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Score</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden lg:table-cell">Task</th>
-                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Actions</th>
+                        <th
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Date</th>
+                        <th
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Category</th>
+                        <th
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Method</th>
+                        <th
+                            class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Duration</th>
+                        <th
+                            class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            RPE</th>
+                        <th
+                            class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Score</th>
+                        <th
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider hidden lg:table-cell">
+                            Task</th>
+                        <th
+                            class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -89,14 +101,16 @@
 
                             {{-- Category --}}
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100">
                                     {{ $training->category?->name ?? 'N/A' }}
                                 </span>
                             </td>
 
                             {{-- Method --}}
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
+                                <span
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
                                     {{ $training->method?->name ?? 'N/A' }}
                                 </span>
                             </td>
@@ -110,15 +124,18 @@
                             {{-- RPE --}}
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 @if($training->RPE >= 8)
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100">
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100">
                                         {{ $training->RPE }}/10
                                     </span>
                                 @elseif($training->RPE >= 6)
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100">
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100">
                                         {{ $training->RPE }}/10
                                     </span>
                                 @else
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
+                                    <span
+                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
                                         {{ $training->RPE }}/10
                                     </span>
                                 @endif
@@ -138,17 +155,11 @@
 
                             {{-- Actions --}}
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <x-button 
-                                    label="Edit" 
-                                    link="{{ route('trainings.edit', $training->id) }}"
-                                    class="btn-sm btn-outline"
-                                />
-                                
-                                <x-button 
-                                    label="Delete" 
-                                    wire:click="confirmDelete({{ $training->id }})"
-                                    class="btn-sm btn-danger ml-2"
-                                />
+                                <x-button label="Edit" link="{{ route('trainings.edit', $training->id) }}"
+                                    class="btn-sm btn-outline" />
+
+                                <x-button label="Delete" wire:click="confirmDelete({{ $training->id }})"
+                                    class="btn-sm btn-danger ml-2" />
                             </td>
                         </tr>
 
@@ -157,16 +168,10 @@
                             <tr class="bg-red-50 dark:bg-red-900/20">
                                 <td colspan="8" class="px-6 py-4 text-red-700 dark:text-red-300">
                                     Are you sure you want to delete this training session?
-                                    <x-button 
-                                        label="Yes, Delete" 
-                                        wire:click="deleteTraining({{ $training->id }})"
-                                        class="btn-sm btn-danger ml-4"
-                                    />
-                                    <x-button 
-                                        label="Cancel" 
-                                        wire:click="$set('confirmingDeleteId', null)"
-                                        class="btn-sm btn-outline ml-2"
-                                    />
+                                    <x-button label="Yes, Delete" wire:click="deleteTraining({{ $training->id }})"
+                                        class="btn-sm btn-danger ml-4" />
+                                    <x-button label="Cancel" wire:click="$set('confirmingDeleteId', null)"
+                                        class="btn-sm btn-outline ml-2" />
                                 </td>
                             </tr>
                         @endif
@@ -174,10 +179,13 @@
                         <tr>
                             <td colspan="8" class="px-6 py-12 text-center">
                                 <div class="text-gray-500 dark:text-gray-400">
-                                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                     </svg>
-                                    <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">No training sessions</h3>
+                                    <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">No training
+                                        sessions</h3>
                                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                                         @if($search)
                                             No results match your search criteria.
@@ -187,12 +195,8 @@
                                     </p>
                                     @if(!$search)
                                         <div class="mt-6">
-                                            <x-button 
-                                                label="Log Training" 
-                                                icon="o-plus" 
-                                                link="{{ route('trainings.create') }}"
-                                                class="btn-primary"
-                                            />
+                                            <x-button label="Log Training" icon="o-plus" link="{{ route('trainings.create') }}"
+                                                class="btn-primary" />
                                         </div>
                                     @endif
                                 </div>

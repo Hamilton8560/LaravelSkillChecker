@@ -30,6 +30,7 @@ class EditCategory extends Component
         return [
             // Unique per user, ignoring current category ID
             // ===Question?
+            //'.$this->category->id.' ignores that this already exists and not treat this as a duplicate.
             'name' => 'required|string|max:255|unique:training_categories,name,'.$this->category->id.',id,user_id,'.Auth::id(),
         ];
     }

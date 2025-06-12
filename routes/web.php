@@ -30,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
         ->name('trainings.edit');
 });
 
+Volt::route('/mastery', 'mastery')->name('mastery');;
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/objectives', ListObjectives::class)
         ->name('objectives.index');
