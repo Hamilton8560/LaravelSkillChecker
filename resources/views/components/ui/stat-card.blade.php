@@ -9,6 +9,15 @@
 
 @php
 $colorClasses = [
+    'default' => 'bg-gray-50 dark:bg-gray-900/20 text-gray-600 dark:text-gray-400',
+    'primary' => 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400',
+    'secondary' => 'bg-gray-50 dark:bg-gray-900/20 text-gray-600 dark:text-gray-400',
+    'success' => 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400',
+    'warning' => 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400',
+    'error' => 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400',
+    'info' => 'bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400',
+    'cream' => 'bg-amber-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300',
+    // Legacy color names for backward compatibility
     'blue' => 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400',
     'green' => 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400',
     'orange' => 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400',
