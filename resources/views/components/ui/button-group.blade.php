@@ -1,6 +1,15 @@
+{{-- 
+    Button Group Component
+    
+    The color prop can be used to pass a consistent color theme to child buttons.
+    Child buttons can access this via parent's data attributes.
+    
+    Available colors: default, primary, secondary, success, warning, error, info, cream
+--}}
 @props([
     'vertical' => false,
     'size' => 'md',
+    'color' => null,
 ])
 
 <div {{ $attributes->merge([
@@ -9,7 +18,10 @@
         ($vertical ? 'flex-col' : 'flex-row') . ' ' .
         ($vertical ? '' : '-space-x-px') . ' ' .
         'rounded-md shadow-sm'
-]) }}>
+]) }}
+    data-button-group-color="{{ $color }}"
+    data-button-group-size="{{ $size }}"
+    >
     {{ $slot }}
 </div>
 

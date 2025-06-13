@@ -6,6 +6,24 @@
 
 @php
 $typeStyles = [
+    'default' => [
+        'bg' => 'bg-gray-50 dark:bg-gray-900/20',
+        'border' => 'border-gray-400 dark:border-gray-600',
+        'text' => 'text-gray-800 dark:text-gray-200',
+        'icon' => 'o-information-circle',
+    ],
+    'primary' => [
+        'bg' => 'bg-blue-50 dark:bg-blue-900/20',
+        'border' => 'border-blue-400 dark:border-blue-600',
+        'text' => 'text-blue-800 dark:text-blue-200',
+        'icon' => 'o-information-circle',
+    ],
+    'secondary' => [
+        'bg' => 'bg-gray-50 dark:bg-gray-900/20',
+        'border' => 'border-gray-400 dark:border-gray-600',
+        'text' => 'text-gray-800 dark:text-gray-200',
+        'icon' => 'o-information-circle',
+    ],
     'success' => [
         'bg' => 'bg-green-50 dark:bg-green-900/20',
         'border' => 'border-green-400 dark:border-green-600',
@@ -29,6 +47,12 @@ $typeStyles = [
         'border' => 'border-blue-400 dark:border-blue-600',
         'text' => 'text-blue-800 dark:text-blue-200',
         'icon' => 'o-information-circle',
+    ],
+    'cream' => [
+        'bg' => 'bg-amber-50 dark:bg-orange-900/20',
+        'border' => 'border-orange-400 dark:border-orange-600',
+        'text' => 'text-orange-800 dark:text-orange-200',
+        'icon' => 'o-sparkles',
     ],
 ];
 
