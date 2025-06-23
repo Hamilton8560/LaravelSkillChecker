@@ -16,7 +16,7 @@ return [
         [
             'name' => 'Adept',
             'threshold' => 74999,
-            'description' => 'You are establishing a consistent routine. Your commitment to regular effort is starting to pay off. (Approx. 1-3 months)',
+            'description' => 'You have a significant history of dedicated training. You can handle a high training load consistently. (Approx. 3-9 months)',
         ],
 
         [
