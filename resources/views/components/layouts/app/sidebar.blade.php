@@ -17,14 +17,20 @@
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
                     wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                <flux:navlist.item icon="bolt" :href="route('trainings.index')"
+                <flux:navlist.item icon="wrench-screwdriver" :href="route('trainings.index')"
                     :current="request()->routeIs('trainings.index')" wire:navigate>{{ __('Training') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="bolt" :href="route('objectives.index')"
+                <flux:navlist.item icon="book-open" :href="route('objectives.index')"
                     :current="request()->routeIs('objectives.index')" wire:navigate>{{ __('Learning Objectives') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="bolt" :href="route('mastery')" :current="request()->routeIs('mastery')"
+                <flux:navlist.item icon="globe-alt" :href="route('mastery')" :current="request()->routeIs('mastery')"
                     wire:navigate>{{ __('Mastery') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="pencil" :href="route('journal.index')"
+                    :current="request()->routeIs('journal.index')" wire:navigate>{{ __('Journal') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="chat-bubble-oval-left-ellipsis" :href="route('llm.chat')"
+                    :current="request()->routeIs('llm.chat')" wire:navigate>{{ __('Chat') }}
                 </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>

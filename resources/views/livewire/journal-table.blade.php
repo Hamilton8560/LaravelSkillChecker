@@ -1,0 +1,1 @@
+<x-table :headers="$headers" :rows="$journals" striped @row-click="alert($event.detail.title)" />

@@ -9,6 +9,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    protected $policies = [
+        \App\Models\Journal::class => \App\Policies\JournalPolicy::class,
+    ];
     public function register(): void
     {
         //

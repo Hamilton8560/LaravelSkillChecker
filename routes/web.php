@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JournalController;
 use App\Livewire\Counter;
 use App\Livewire\CreateCategory;
 use App\Livewire\CreateMethod;
@@ -13,6 +14,7 @@ use App\Livewire\ListCategories;
 use App\Livewire\ListMethods;
 use App\Livewire\ListObjectives;
 use App\Livewire\ListTrainings;
+use App\Models\Journal;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -40,6 +42,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/objectives/{objective}/edit', EditObjectives::class)
         ->name('objectives.edit');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::resource('journal', JournalController::class);
+});
+
+Volt::route('/llm-chat', 'llm-chat')  // name of your Volt file without .blade.php
+    ->name('llm.chat');
 
 Route::get('/counter', Counter::class);
 
