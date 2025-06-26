@@ -20,7 +20,7 @@ class JournalController extends Controller
 
         $journals = $user->journals()->with(['user'])->latest()->paginate(10);
         if (count($journals) === 0) {
-            return view("journal.write");
+            return view("journal.create");
         } else {
             $headers = [
                 ['key' => 'id', 'label' => '#'],
