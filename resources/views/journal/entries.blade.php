@@ -43,7 +43,7 @@
                         <th class="px-4 py-2">{{ $journal['content'] }}</th>
                         <th class="px-4 py-2">{{ $journal['created_at'] }}</th>
                         <th class="px-4 py-2"> <a href="{{route('journal.show', $journal->id)}}"
-                                class="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-md">Edit</a></th>
+                            class="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-md">Edit</a></th>
 
                     </tr>
                 @endforeach

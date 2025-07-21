@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JournalController;
 use App\Livewire\Counter;
 use App\Livewire\CreateCategory;
@@ -55,8 +56,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
+// Route::view('dashboard', 'dashboard')
+//     ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
+
+Route::get('/dashboard', DashboardController::class)
+    ->middleware(['auth','verified'])
     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
