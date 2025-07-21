@@ -97,7 +97,7 @@
                                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
                                     <div>
                                         <p class="text-gray-500 dark:text-gray-400">Total Time</p>
-                                        <p class="font-medium text-gray-900 dark:text-white">{{ $category['total_duration'] }} min</p>
+                                        <p class="font-medium text-gray-900 dark:text-white">{{ round($category['total_duration'] /60, 2) }} hours</p>
                                     </div>
                                     <div>
                                         <p class="text-gray-500 dark:text-gray-400">Avg Duration</p>
